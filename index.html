@@ -374,9 +374,9 @@
 
       ctx.font = 'bold 32px "Aref Ruqaa", serif';
       ctx.fillStyle = '#d92525';
-      // السطر الجديد (بدون العلم)
       ctx.fillText("دامت قيادتنا الرشيدة", width / 2, 500);
 
+      // 1. رسم المربع الأخضر أولاً
       const nameBoxY = 560;
       ctx.fillStyle = '#0b4f3a';
       ctx.beginPath();
@@ -397,13 +397,17 @@
       }
       ctx.stroke();
 
+      // 2. كتابة اسم المستخدم داخل المربع الأخضر
       ctx.font = 'bold 34px Cairo, sans-serif';
       ctx.fillStyle = '#ffffff';
+      ctx.textAlign = 'center';
       ctx.fillText(name, width / 2, nameBoxY + 54);
 
-      ctx.font = 'bold 22px Cairo, sans-serif';
+      // 3. كتابة عبارة التحية تحت المربع الأخضر في أسفل البطاقة
+      ctx.font = 'bold 20px Cairo, sans-serif';
       ctx.fillStyle = '#0b4f3a';
-      ctx.fillText("مع تحيات / محمد حامد - معلم الحاسب 1448 هـ- برعاية مدير ثانوية الطموح أ/ عبدالله الزهراني ", width / 2, 755);
+      ctx.textAlign = 'center';
+      ctx.fillText("مع تحيات / محمد حامد - معلم الحاسب 1448 هـ - برعاية مدير ثانوية الطموح أ/ عبدالله الزهراني", width / 2, height - 60);
 
       try {
         generatedImageBase64 = canvas.toDataURL('image/png');
