@@ -312,7 +312,6 @@
       drawCornerOrnament(ctx, 52, height - 52, 1, -1);
       drawCornerOrnament(ctx, width - 52, height - 52, -1, -1);
 
-      // محاولة جلب الصور محلياً مع معالجة حظر الأمان
       const moeImg = await loadImage('moe-logo.png');
       const schoolImg = await loadImage('school-logo.png');
 
@@ -353,9 +352,17 @@
         headerY += 28;
       });
 
+      // رسم خط فاصل ذهبي أسفل اسم المدرسة وقبل عبارة التهنئة
+      ctx.beginPath();
+      ctx.moveTo(width / 2 - 180, headerY - 10);
+      ctx.lineTo(width / 2 + 180, headerY - 10);
+      ctx.strokeStyle = '#c5a059';
+      ctx.lineWidth = 2;
+      ctx.stroke();
+
       ctx.font = 'bold 36px "Aref Ruqaa", serif';
       ctx.fillStyle = '#c5a059';
-      ctx.fillText("دام عزك يا وطن .. عزنا بطبعنا", width / 2, 285);
+      ctx.fillText("دام عزك يا وطن .. عزنا بطبعنا", width / 2, 310);
 
       ctx.font = 'bold 50px "Aref Ruqaa", serif';
       ctx.fillStyle = '#0b4f3a';
@@ -376,7 +383,6 @@
       ctx.fillStyle = '#d92525';
       ctx.fillText("دامت قيادتنا الرشيدة", width / 2, 500);
 
-      // 1. رسم المربع الأخضر أولاً
       const nameBoxY = 560;
       ctx.fillStyle = '#0b4f3a';
       ctx.beginPath();
@@ -397,13 +403,11 @@
       }
       ctx.stroke();
 
-      // 2. كتابة اسم المستخدم داخل المربع الأخضر
       ctx.font = 'bold 34px Cairo, sans-serif';
       ctx.fillStyle = '#ffffff';
       ctx.textAlign = 'center';
       ctx.fillText(name, width / 2, nameBoxY + 54);
 
-      // 3. كتابة عبارة التحية تحت المربع الأخضر في أسفل البطاقة
       ctx.font = 'bold 20px Cairo, sans-serif';
       ctx.fillStyle = '#0b4f3a';
       ctx.textAlign = 'center';
